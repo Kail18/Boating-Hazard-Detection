@@ -10,4 +10,14 @@
 
 1. Finalize and import the maritime dataset.
 
-2. It provided a script test_lars_to_yolo.py
+2. It provided a script test_lars_to_yolo.py. It also provided scripts to bash command for running different tests on the dataset that I downloaded from LARS.
+
+## Prompt 3 | 10:34 07/11/2026
+
+1. Give me a markdown of what we have done and what we will do next for me to add to the midterm progress in the README.md
+
+2. It gave me an extensive markdown.
+
+## Prompt 4 | 10:35 07/11/2026
+
+1. give me a condensed summary markdown with key points to add. I do not need a breakdown of each step
