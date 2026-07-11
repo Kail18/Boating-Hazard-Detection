@@ -43,7 +43,3 @@ The dataset is dominated by vessels, while swimmers and paddle boards are underr
 - Test image-processing methods such as CLAHE, color normalization, dehazing, and higher image resolution
 - Compare each experiment against the baseline
 - Complete the literature review and midterm presentation
-
-### Research Direction
-
-The project will not reproduce another research paper’s full methodology. Existing research will be used to justify model selection, preprocessing choices, and evaluation methods. The project’s contribution will come from its hazard-class mapping, preprocessing experiments, class-imbalance analysis, and evaluation of small safety-critical hazards.
