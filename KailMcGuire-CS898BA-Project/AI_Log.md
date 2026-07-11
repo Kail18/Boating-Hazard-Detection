@@ -222,3 +222,60 @@ This is the output after refactoring
    - added the new py file to visualization_yolo annotation_renderer
    - updated the visualization_yolo init.py
    - updated the visualize_yolo script import and main()
+
+## Prompt 10 | 14:31 07/11/2026
+
+1. Training images: 2605
+   Validation images: 198
+
+Configured classes:
+0: vessel
+1: buoy
+2: swimmer
+3: paddle_board
+4: floating_obstacle
+
+Stage 1 dataset verification completed successfully.
+
+Sample annotated image:
+Image: /Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/KailMcGuire-CS898BA-Project/data/processed/lars_yolo/images/train/davimar_seq_01_00017.jpg
+Label: /Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/KailMcGuire-CS898BA-Project/data/processed/lars_yolo/labels/train/davimar_seq_01_00017.txt
+Objects in label file: 3
+
+Stage 2 image-label pairing completed successfully.
+
+Image dimensions:
+Width: 2208 pixels
+Height: 1242 pixels
+
+Parsed annotations and pixel coordinates:
+
+Object 1
+Class: 0 (vessel)
+Normalized box: center=(0.834013, 0.494767), size=(0.331975, 0.437198)
+Pixel corners: left=1475, top=343, right=2207, bottom=886
+Pixel size: 732 × 543
+
+Object 2
+Class: 4 (floating_obstacle)
+Normalized box: center=(0.331975, 0.517311), size=(0.003623, 0.004026)
+Pixel corners: left=729, top=640, right=737, bottom=645
+Pixel size: 8 × 5
+
+Object 3
+Class: 0 (vessel)
+Normalized box: center=(0.569520, 0.478261), size=(0.044837, 0.024155)
+Pixel corners: left=1208, top=579, right=1307, bottom=609
+Pixel size: 99 × 30
+
+Stage 3 coordinate conversion completed successfully.
+
+Rendered annotation visualization:
+Source image: /Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/KailMcGuire-CS898BA-Project/data/processed/lars_yolo/images/train/davimar_seq_01_00017.jpg
+Saved image: /Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/KailMcGuire-CS898BA-Project/outputs/figures/label_verification/davimar_seq_01_00017_annotated.jpg
+Boxes drawn: 3
+Image size: 2208 × 1242
+
+Stage 4 bounding-box rendering completed successfully.
+
+here is the output of Stage 4.
