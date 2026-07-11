@@ -1,0 +1,10 @@
+numpy
+pandas
+opencv-python
+matplotlib
+Pillow
+PyYAML
+scikit-learn
+ultralytics
+jupyter
+pytest

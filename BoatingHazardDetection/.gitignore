@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Data and model artifacts
+data/raw/*
+data/interim/*
+data/processed/*
+data/annotations/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/annotations/.gitkeep
+models/checkpoints/*
+models/exported/*
+!models/checkpoints/.gitkeep
+!models/exported/.gitkeep
+outputs/*
+!outputs/figures/
+!outputs/predictions/
+!outputs/metrics/
+!outputs/logs/
+!outputs/figures/.gitkeep
+!outputs/predictions/.gitkeep
+!outputs/metrics/.gitkeep
+!outputs/logs/.gitkeep
+
+# Notebook checkpoints
+.ipynb_checkpoints/

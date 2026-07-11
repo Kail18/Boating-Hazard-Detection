@@ -1,0 +1,37 @@
+project:
+  name: maritime_hazard_detection
+  course: CS 898BA
+  task: object_detection
+  scope: detect visible boating and maritime hazards in still images or video frames
+
+classes:
+  - boat
+  - buoy
+  - person_in_water
+  - floating_obstacle
+  - dock_or_pier
+  - shoreline_or_rocks
+
+paths:
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  annotations: data/annotations
+  checkpoints: models/checkpoints
+  predictions: outputs/predictions
+  metrics: outputs/metrics
+
+processing:
+  resize_width: 640
+  resize_height: 640
+  use_clahe: true
+  use_color_normalization: true
+  use_dehazing_experiment: true
+  use_edge_analysis: true
+
+training:
+  baseline_model: yolo
+  epochs: 30
+  batch_size: 16
+  image_size: 640
+  seed: 42
