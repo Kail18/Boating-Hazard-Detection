@@ -90,17 +90,49 @@ python scripts/preprocess_dataset.py --input data/raw --output data/processed
 
 The initial pipeline applies CLAHE to the LAB luminance channel, resizes images without changing their aspect ratio, and pads them to a consistent model input size.
 
-## Midterm Objective
+## Midterm Discussion
 
-By the midterm milestone, the repository should contain:
+During conversion, all 2,803 images were successfully located. One malformed or unusable bounding-box annotation was excluded, while 10,415 valid object annotations were retained.
 
-1. A condensed literature review tied directly to the implementation.
-2. A documented dataset and image-processing pipeline.
-3. A reproducible baseline detector with preliminary metrics.
-4. Prediction examples and failure-case analysis.
-5. A discussion of roadblocks and any scope pivots.
+### Dataset Summary
 
-See `docs/MIDTERM_CHECKLIST.md` for the working checklist and `docs/PROJECT_STATUS.md` for the current state.
+This is to evaluate the dataset.
+
+From the project root(KailMcGuire-CS898BA-Project) run:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+
+summary_path = Path("data/processed/lars_yolo/import_summary.json")
+
+with summary_path.open("r", encoding="utf-8") as file:
+    summary = json.load(file)
+
+for split_data in summary["splits"]:
+    split_name = (
+        split_data.get("split")
+        or split_data.get("name")
+        or split_data.get("split_name")
+        or "unknown"
+    )
+
+    class_counts = split_data.get("class_counts", {})
+    total = sum(class_counts.values())
+
+    print(f"\n{split_name.upper()}")
+    print(f"Total objects: {total}")
+
+    for class_name, count in class_counts.items():
+        percentage = (count / total * 100) if total else 0
+        print(
+            f"{class_name:20} "
+            f"{count:6} "
+            f"({percentage:6.2f}%)"
+        )
+PY
+```
 
 ## AI Accountability
 
