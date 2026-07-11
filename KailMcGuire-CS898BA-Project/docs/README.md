@@ -1,5 +1,7 @@
 # Class Distribution
 
+This is a statistical analysis on "data/processed/lars_yolo/import_summary.json" file.
+
 The compact five-class conversion produced 9,309 training objects and
 1,106 validation objects.
 

@@ -96,7 +96,7 @@ During conversion, all 2,803 images were successfully located. One malformed or 
 
 ### Dataset Summary
 
-This is to evaluate the dataset.
+This is to evaluate the dataset. The evaluation is included inside docs/README.md.
 
 From the project root(KailMcGuire-CS898BA-Project) run:
 
