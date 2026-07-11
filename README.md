@@ -2,16 +2,16 @@
 
 The root project is KailMcGuire-CS898BA-Project. The Milestone 1 directory was the project pitch provided at the beginning of the semester.
 
-## Midterm Progress Report
+## Midterm Project Progress
 
-The project focuses on detecting maritime hazards from boat-level imagery using a YOLO-style object detector. The current scope is object detection only and does not include autonomous navigation or vessel control.
+The project currently focuses on detecting maritime hazards from boat-level imagery using a YOLO-style object-detection approach. The scope is limited to hazard detection and does not include autonomous navigation or vessel control.
 
 ### Completed
 
-- Selected the LaRS maritime dataset
-- Downloaded and extracted the image and annotation archives
+- Selected and downloaded the LaRS maritime dataset
+- Extracted the image and annotation archives
 - Created a custom LaRS-to-YOLO conversion pipeline
-- Mapped the original annotations into five project classes:
+- Mapped the original LaRS categories into five project classes:
 
   - `vessel`
   - `buoy`
@@ -19,27 +19,104 @@ The project focuses on detecting maritime hazards from boat-level imagery using 
   - `paddle_board`
   - `floating_obstacle`
 
-- Converted 2,803 images and 10,415 object annotations into YOLO format
-- Generated the required `dataset.yaml` file
-- Verified that no referenced images were missing
-- Identified and skipped one invalid bounding box
-- Analyzed the class distribution and identified substantial class imbalance
+- Converted the dataset into YOLO-compatible image and label folders
+- Generated a YOLO `dataset.yaml` file
+- Generated an `import_summary.json` conversion report
+- Verified that all referenced images were found
+- Identified and skipped one invalid bounding-box annotation
+- Analyzed training and validation class distributions
+- Identified substantial class imbalance, especially for swimmers and paddle boards
+- Built a modular annotation-verification pipeline
+- Loaded YOLO label files and matched them with their corresponding images
+- Parsed normalized YOLO bounding-box coordinates
+- Converted normalized coordinates into image pixel coordinates
+- Drew and saved ground-truth bounding boxes for manual inspection
 
 ### Dataset Summary
 
-| Split      | Images | Objects |
-| ---------- | -----: | ------: |
-| Training   |  2,605 |   9,309 |
-| Validation |    198 |   1,106 |
+| Split      | Images | Labeled Objects |
+| ---------- | -----: | --------------: |
+| Training   |  2,605 |           9,309 |
+| Validation |    198 |           1,106 |
+| Total      |  2,803 |          10,415 |
 
-The dataset is dominated by vessels, while swimmers and paddle boards are underrepresented. Because of this imbalance, the project will report both overall and per-class model performance.
+The dataset is dominated by vessel annotations, while swimmers and paddle boards are underrepresented. The training split contains approximately 41 vessel annotations for every paddle-board annotation.
+
+Because of this imbalance, later evaluation will include both overall and per-class performance metrics.
+
+### Annotation Verification
+
+A custom visualization pipeline was created with separate modules for:
+
+- Dataset configuration verification
+- Image-label pairing
+- Annotation parsing
+- Coordinate conversion
+- Bounding-box rendering
+
+The current visualization displays the original LaRS ground-truth annotations. These boxes are not model predictions.
+
+Manual review of the first rendered sample showed:
+
+- Two labeled vessel objects
+- One very small floating-obstacle annotation
+- The floating obstacle occupied approximately `8 × 5` pixels in the original image
+- A possible additional vessel may be visible without a separate annotation
+
+This observation suggests that the source dataset may contain occasional missing or ambiguous annotations and highlights the difficulty of detecting very small maritime hazards.
+
+### Current Project Status
+
+| Project Component                     | Status      |
+| ------------------------------------- | ----------- |
+| Project scope and research direction  | Complete    |
+| Dataset selection and download        | Complete    |
+| Dataset conversion                    | Complete    |
+| Class mapping                         | Complete    |
+| Dataset quality analysis              | Complete    |
+| Class-distribution analysis           | Complete    |
+| Ground-truth annotation visualization | In progress |
+| Multi-class sample verification       | Not started |
+| Baseline YOLO training                | Not started |
+| Model prediction                      | Not started |
+| Model evaluation                      | Not started |
+| Image-processing experiments          | Not started |
+| Final experiment comparison           | Not started |
+
+### Important Clarification
+
+No machine-learning model has been trained or used for inference yet.
+
+The boxes currently displayed are ground-truth annotations supplied by the LaRS dataset. The project code converts, validates, and visualizes those annotations, but it has not yet generated model predictions.
+
+Once the baseline model is trained, the project will compare:
+
+```text
+Ground-truth boxes → supplied by the LaRS dataset
+Predicted boxes    → generated by the trained YOLO model
+```
 
 ### Next Steps
 
-- Visualize sample bounding boxes to confirm annotation accuracy
+- Continue annotation verification using examples from all five classes
+- Inspect rare classes such as swimmers and paddle boards
+- Document missing, ambiguous, or extremely small annotations
 - Train an unprocessed YOLO baseline
+- Generate model predictions on the validation split
 - Evaluate precision, recall, mAP, confusion matrices, and per-class performance
-- Analyze missed detections and false positives
-- Test image-processing methods such as CLAHE, color normalization, dehazing, and higher image resolution
-- Compare each experiment against the baseline
-- Complete the literature review and midterm presentation
+- Review false positives, missed detections, and small-object failures
+- Test preprocessing methods such as CLAHE, color normalization, dehazing, and higher image resolution
+- Compare each experiment against the unprocessed baseline
+
+### Research Direction
+
+The project is not reproducing another research paper’s complete methodology. Existing research is being used to support dataset selection, model choice, preprocessing decisions, and evaluation methods.
+
+The project’s original contribution will come from:
+
+- The five-class maritime hazard mapping
+- The custom conversion and annotation-verification pipeline
+- Analysis of class imbalance and very small hazards
+- Comparison of baseline and preprocessing experiments
+- Per-class evaluation of safety-critical objects
+- Analysis of model failures in recreational boating scenes
