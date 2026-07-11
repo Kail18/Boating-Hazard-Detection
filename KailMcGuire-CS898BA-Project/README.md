@@ -70,9 +70,19 @@ Expected output:
 Hello World! CS 898BA Maritime Hazard Detection Project
 ```
 
-## Preprocess a Dataset
+## Import the LaRS Dataset
 
-Place images under `data/raw/`, then run:
+The selected baseline dataset is LaRS v1.0.0. Download its single-frame images and train/validation annotations from the official dataset page, extract them under `data/raw/lars/`, and run:
+
+```bash
+python scripts/import_lars.py
+```
+
+This converts the COCO-panoptic segment bounding boxes into Ultralytics YOLO labels and creates `data/processed/lars_yolo/dataset.yaml`. See `docs/DATASET.md` for the selected classes, expected extraction layout, and import options.
+
+## Preprocess Images for Comparison Experiments
+
+The separate image-processing experiment can be run with:
 
 ```bash
 python scripts/preprocess_dataset.py --input data/raw --output data/processed

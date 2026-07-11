@@ -2,15 +2,36 @@ project:
   name: maritime_hazard_detection
   course: CS 898BA
   task: object_detection
-  scope: detect visible boating and maritime hazards in still images or video frames
+  scope: detect visible dynamic boating and maritime hazards in still images or video frames
+
+dataset:
+  primary: LaRS_v1.0.0
+  source_root: data/raw/lars
+  yolo_root: data/processed/lars_yolo
+  conversion_profile: compact5
+  external_benchmark_candidate: MODS
 
 classes:
-  - boat
+  - vessel
   - buoy
-  - person_in_water
+  - swimmer
+  - paddle_board
   - floating_obstacle
-  - dock_or_pier
-  - shoreline_or_rocks
+
+class_mapping:
+  vessel:
+    - boat/ship
+    - row boat
+  buoy:
+    - buoy
+  swimmer:
+    - swimmer
+  paddle_board:
+    - paddle board
+  floating_obstacle:
+    - float
+    - animal
+    - other
 
 paths:
   raw_data: data/raw
