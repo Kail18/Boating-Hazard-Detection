@@ -279,3 +279,11 @@ Image size: 2208 × 1242
 Stage 4 bounding-box rendering completed successfully.
 
 here is the output of Stage 4.
+
+## Prompt 11 | 15:36 07/012/2026
+
+1. we also might want to consider doing a YOLO and Fast R-CNN since the YOLO research paper discussed seeing the most promising results with a combination of the two
+
+Note: I prompted this since the current trajectory was to just use the YOLO and R-CNN seperate. I noticed the best results were seen with a combination of the two in the YOLO.pdf paper.
+
+2. Chat GPT is now alligned with the direction that I believe is a better fit for the project. It broke down the outputs in stages.

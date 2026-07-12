@@ -1,0 +1,27 @@
+{
+  "mode": "smoke",
+  "run_name": "yolo11s_compact5_smoke",
+  "dataset_yaml": "/Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/KailMcGuire-CS898BA-Project/data/processed/lars_yolo/dataset.yaml",
+  "classes": [
+    "vessel",
+    "buoy",
+    "swimmer",
+    "paddle_board",
+    "floating_obstacle"
+  ],
+  "model_weights": "yolo11s.pt",
+  "epochs": 1,
+  "batch_size": 4,
+  "image_size": 640,
+  "fraction": 0.05,
+  "seed": 42,
+  "device": "mps",
+  "workers": 0,
+  "python_version": "3.13.1",
+  "python_executable": "/Users/kailmcguire/Desktop/WSU Computer Science/CS-898(Image Analysis and Comp Vision)/FinalProject/.venv/bin/python",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "torch_version": "2.13.0",
+  "ultralytics_version": "8.4.92",
+  "cuda_available": false,
+  "mps_available": true
+}
