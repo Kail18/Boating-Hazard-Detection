@@ -287,3 +287,19 @@ here is the output of Stage 4.
 Note: I prompted this since the current trajectory was to just use the YOLO and R-CNN seperate. I noticed the best results were seen with a combination of the two in the YOLO.pdf paper.
 
 2. Chat GPT is now alligned with the direction that I believe is a better fit for the project. It broke down the outputs in stages.
+
+## Prompt 12 | 19:56 07/12/2026
+
+1. 2 Prompts:
+
+- I have finished the model training script before we move any further I want to break down everything we just did setting up this model. This is the first time I created a model so I want to take the time and learn everything that we just did.
+
+- Give me a markdown for the midterm with where we are at
+
+2. I uploaded the markdown I am going to read the report that the AI provided and the markdown, and then rewrite the markdown file.
+
+## Prompt 13 | 20:40 07/12/2026
+
+1. Do a line by line breakdown of yolo_trainer.py file
+
+2. It gave me a line by line breakdown. This is for research.

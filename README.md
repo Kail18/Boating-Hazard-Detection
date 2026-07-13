@@ -51,6 +51,20 @@ KailMcGuire-CS898BA-Project/
 - models/ stores trained weights.
 - outputs/ stores results.
 
+#### This is the final model-ready dataset
+
+```text
+lars_yolo/
+  ├── images/
+  │   ├── train/
+  │   └── val/
+  ├── labels/
+  │   ├── train/
+  │   └── val/
+  ├── dataset.yaml
+  └── import_summary.json
+```
+
 ### Roadblocks and Pivots
 
 - Roadblock - the Ground Truth from the LaRS dataset did not account for unknown object detection. I believe it would be benificial to include this to warn the captain that there is a possible hazard. I will leave the 5 classes from the LaRS dataset for right now since the unknown object is just shoreline clutter. This could get confusing to the captain if its always alerting and can cause the captain to stop paying attention to the detection software.
