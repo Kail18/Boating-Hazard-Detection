@@ -309,6 +309,10 @@ def run_yolo_experiment(
         str(model_config["weights"])
     )
 
+    augmentation_arguments = (
+        _training_augmentation_arguments(mode)
+    )
+
     model.train(
         data=str(dataset_yaml),
         epochs=epochs,
@@ -356,6 +360,7 @@ def run_yolo_experiment(
         name=run_name,
         exist_ok=False,
         verbose=True,
+        **augmentation_arguments,
     )
 
     actual_run_dir = Path(
@@ -379,3 +384,21 @@ def run_yolo_experiment(
     )
 
     return actual_run_dir
+
+def _training_augmentation_arguments(
+    mode: str,
+) -> dict[str, float]:
+    """Return augmentation settings appropriate for the experiment mode."""
+    if mode == "smoke":
+        return {
+            "mosaic": 0.0,
+            "translate": 0.0,
+            "scale": 0.0,
+            "fliplr": 0.0,
+            "flipud": 0.0,
+            "hsv_h": 0.0,
+            "hsv_s": 0.0,
+            "hsv_v": 0.0,
+        }
+
+    return {}
